@@ -27,7 +27,7 @@ function createBlock(containerBlock, y) {
     containerBlock.append(block);
 
     block.addEventListener("click", function () {
-        block.classList.toggle("bg-success");
+        block.classList.toggle("block-click");
     })
 }
 
