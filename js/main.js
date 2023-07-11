@@ -6,21 +6,25 @@ const btn = document.getElementById("btn");
 
 btn.addEventListener("click", function () {
 
+    container.classList.replace("d-none", "d-flex")
+
+    container.innerHTML = "";
+
     const selectDifficulty = parseInt(select.value);
 
     const difficulty = selectRow(selectDifficulty);
 
-    container.innerHTML = "";
-
     for (let i = 0; i < difficulty; i++) {
 
-        createBlock(container, difficulty);
+        createBlock(container, difficulty, i);
 
     }
 
 })
 
-function createBlock(containerBlock, y) {
+
+// Funzione che crea una div class "block"
+function createBlock(containerBlock, y, i) {
     let block = document.createElement("div");
     block.classList.add("block");
     block.style.flexBasis = `calc(100% / ${Math.sqrt(y)})`;
@@ -28,9 +32,11 @@ function createBlock(containerBlock, y) {
 
     block.addEventListener("click", function () {
         block.classList.toggle("block-click");
+        console.log(i)
     })
 }
 
+// Funzione che controlla il valore selezionato nella select dall'utente
 function selectRow(x) {
     let blockInRow = 0;
 
